@@ -1,6 +1,10 @@
 # action.yml
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Az Artifacts Universal Download'
+description: 'Action para la descarga de un artefacto del repositorio de artefactos de Azure DevOps'
+# https://actions-cool.github.io/github-action-branding/
+branding:
+  icon: 'download-cloud'
+  color: 'white'
 inputs:
   who-to-greet:  # id of input
     description: 'Who to greet'
