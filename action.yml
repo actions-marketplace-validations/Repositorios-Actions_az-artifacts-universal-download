@@ -6,12 +6,12 @@ branding:
   icon: 'download-cloud'
   color: 'white'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  comand:  # id of input
+    description: 'Comando a ejecutar'
     required: true
-    default: 'World'
+    default: 'az'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.comand }}
