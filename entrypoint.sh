@@ -1,7 +1,8 @@
 #!/bin/sh -l
 
-echo "$1"
+"$1"
 pwd
 id
+az
 time=$(date)
 echo "time=$time" >> $GITHUB_OUTPUT
