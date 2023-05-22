@@ -32,6 +32,9 @@ inputs:
     description: 'path del artefacto'
     required: true
     default: .
+  OptionalCommand:
+    description: 'path del artefacto'
+    default: echo "No se ejecutaron comandos adicionales"
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -44,3 +47,4 @@ runs:
     - ${{ inputs.name }}
     - ${{ inputs.version }}
     - ${{ inputs.path }}
+    - ${{ inputs.OptionalCommand }}
