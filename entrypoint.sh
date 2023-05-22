@@ -16,9 +16,13 @@ echo "###                  AZ LOGIN                   ###"
 echo "###################################################"
 az login -u $1 -p $2
 
+echo "###             CREATE DIRECTORY $6             ###"
+echo "###################################################"
+mkdir $6
+
 echo "###      AZ ARTIFACT UNIVERSAL DOWNLOAD         ###"
 echo "###################################################"
-az artifacts universal download --organization "$3" --project "$4" --scope project --feed "$5" --name "$6" --version $7 --path $8
+cd $6 && az artifacts universal download --organization "$3" --project "$4" --scope project --feed "$5" --name "$6" --version $7 --path $8
 
 echo "###               OPTIONAL COMMAND              ###"
 echo "###################################################"
