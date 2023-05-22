@@ -6,12 +6,15 @@ branding:
   icon: 'download-cloud'
   color: 'white'
 inputs:
-  comand:  # id of input
-    description: 'Comando a ejecutar'
+  user:  # user azure
+    description: 'Usuario azure'
     required: true
-    default: 'az'
+  pass:  # password user azure
+    description: 'Contraseña del usuario'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.comand }}
+    - ${{ inputs.user }}
+    - ${{ inputs.pass }}
