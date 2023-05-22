@@ -6,15 +6,41 @@ branding:
   icon: 'download-cloud'
   color: 'white'
 inputs:
-  user:  # user azure
+  user:  # Usuario Azure 
     description: 'Usuario azure'
     required: true
-  pass:  # password user azure
+  pass:
     description: 'Contraseña del usuario'
     required: true
+  organization: 
+    description: 'Organización del artefacto'
+    required: true
+  project: 
+    description: 'Proyecto del artefacto'
+    required: true
+  feed:
+    description: 'Nombre del repositorio de artefacto'
+    required: true
+  name:
+    description: 'Nombre del artefacto'
+    required: true
+  version:
+    description: 'versión del artefacto'
+    required: true
+    default: 0.0.0
+  path:
+    description: 'path del artefacto'
+    required: true
+    default: .
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.user }}
     - ${{ inputs.pass }}
+    - ${{ inputs.organization }}
+    - ${{ inputs.project }}
+    - ${{ inputs.feed }}
+    - ${{ inputs.name }}
+    - ${{ inputs.version }}
+    - ${{ inputs.path }}
