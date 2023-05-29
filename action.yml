@@ -18,6 +18,10 @@ inputs:
   project: 
     description: 'Proyecto del artefacto'
     required: true
+  scope: 
+    description: 'Scope del artefacto'
+    required: true
+    default: project
   feed:
     description: 'Nombre del repositorio de artefacto'
     required: true
@@ -32,9 +36,6 @@ inputs:
     description: 'path del artefacto'
     required: true
     default: .
-  OptionalCommand:
-    description: 'path del artefacto'
-    default: echo "No se ejecutaron comandos adicionales"
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -43,8 +44,8 @@ runs:
     - ${{ inputs.pass }}
     - ${{ inputs.organization }}
     - ${{ inputs.project }}
+    - ${{ inputs.scope }}
     - ${{ inputs.feed }}
     - ${{ inputs.name }}
     - ${{ inputs.version }}
     - ${{ inputs.path }}
-    - ${{ inputs.OptionalCommand }}
