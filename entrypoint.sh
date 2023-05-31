@@ -1,9 +1,5 @@
 #!/bin/sh -l
 
-echo "## HOME"
-echo "###################################################################"
-pwd
-
 echo "## AZ LOGIN"
 echo "###################################################################"
 az login -u $1 -p $2
@@ -21,12 +17,6 @@ ls -l
 echo "## AZ LOGOUT"
 echo "###################################################################"
 az logout
-
-# Copy files in runner
-#docker cp 7be60b0e9652:api-sample-anthony .
-
-# Delete image in runner
-#docker rmi 7be60b0e9652
 
 time=$(date)
 echo "time=$time" >> $GITHUB_OUTPUT
