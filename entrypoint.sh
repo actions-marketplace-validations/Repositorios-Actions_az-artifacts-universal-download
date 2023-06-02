@@ -1,14 +1,12 @@
 #!/bin/sh -l
 
-pwd
-id
-
 echo "## AZ LOGIN"
 echo "###################################################################"
 az login -u $1 -p $2
 
 echo "## CREATE DIRECTORY $6"
 echo "###################################################################"
+rm -rf $6 # Lmpia directorio si existe
 mkdir $6
 ls -l
 
