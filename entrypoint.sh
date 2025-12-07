@@ -1,5 +1,23 @@
 #!/bin/sh -l
 
-echo "$1"
+echo "## AZ LOGIN"
+echo "###################################################################"
+az login -u $1 -p $2
+
+echo "## CREATE DIRECTORY $6"
+echo "###################################################################"
+rm -rf $6 # Lmpia directorio si existe
+mkdir $6
+ls -l
+
+echo "## AZ ARTIFACT UNIVERSAL DOWNLOAD"
+echo "###################################################################"
+cd $6 && az artifacts universal download --organization "$3" --project "$4" --scope "$5" --feed "$6" --name "$7" --version $8 --path $9
+ls -l
+
+echo "## AZ LOGOUT"
+echo "###################################################################"
+az logout
+
 time=$(date)
 echo "time=$time" >> $GITHUB_OUTPUT
